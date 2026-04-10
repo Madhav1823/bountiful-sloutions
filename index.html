@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bountiful Solutions | Interior & Architectural Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f8fa;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      background: #0f172a;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      color: #ef4444;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      font-size: 12px;
+      color: #cbd5e1;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      background:
+        linear-gradient(rgba(15, 23, 42, 0.68), rgba(15, 23, 42, 0.68)),
+        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 110px 0 90px;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #e2e8f0;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #ef4444;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #dc2626;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #fff;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #0f172a;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 16px;
+      color: #0f172a;
+      font-size: 34px;
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 45px;
+      color: #475569;
+      font-size: 16px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-text {
+      background: white;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .about-text h3 {
+      margin-bottom: 14px;
+      color: #ef4444;
+      font-size: 24px;
+    }
+
+    .about-text p {
+      margin-bottom: 14px;
+      color: #334155;
+    }
+
+    .about-image img {
+      border-radius: 18px;
+      height: 100%;
+      object-fit: cover;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      border-top: 4px solid #ef4444;
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .service-card h4 {
+      color: #0f172a;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .service-card p {
+      color: #475569;
+      font-size: 14px;
+    }
+
+    .works-section {
+      background: #e2e8f0;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .work-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    .work-card img {
+      height: 240px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .work-content {
+      padding: 22px;
+    }
+
+    .work-content h4 {
+      color: #0f172a;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .work-content p {
+      color: #475569;
+      font-size: 14px;
+    }
+
+    .brands {
+      background: #0f172a;
+      color: white;
+    }
+
+    .brand-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .brand-item {
+      background: #1e293b;
+      padding: 18px;
+      border-radius: 14px;
+      text-align: center;
+      font-weight: 600;
+      color: #f8fafc;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .contact-card h3 {
+      color: #ef4444;
+      margin-bottom: 16px;
+    }
+
+    .contact-card p {
+      margin-bottom: 12px;
+      color: #334155;
+    }
+
+    .highlight-box {
+      background: #0f172a;
+      color: white;
+      padding: 26px;
+      border-radius: 18px;
+    }
+
+    .highlight-box h3 {
+      margin-bottom: 14px;
+      color: #38bdf8;
+    }
+
+    footer {
+      background: #020617;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 22px 15px;
+      font-size: 14px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    @media (max-width: 992px) {
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .works-grid,
+      .brand-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h2 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        gap: 14px;
+      }
+
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .works-grid,
+      .brand-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 85px 0 70px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <h1>Bountiful Solutions</h1>
+        <span>Interior | Flooring | Ceilings | Blinds</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <h2>Complete Interior Product Solutions for Homes, Offices & Commercial Spaces</h2>
+      <p>
+        Bountiful Solutions supplies and supports premium interior and architectural products including false ceilings,
+        flooring systems, blinds, resin panels, acoustical wall panels, frosted films, and more for residential,
+        office, retail, and institutional projects.
+      </p>
+      <div class="hero-buttons">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Bountiful Solutions</h2>
+      <p class="section-subtitle">
+        We deliver reliable interior product solutions with focus on quality materials, practical execution,
+        design support, and client satisfaction.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>What We Do</h3>
+          <p>
+            Bountiful Solutions is a Hyderabad-based interior solutions company dealing in a wide range of
+            ceiling systems, flooring products, blinds, panels, films, and acoustical applications. We cater
+            to residential, corporate, commercial, and renovation requirements.
+          </p>
+          <p>
+            Our work includes product supply, selection support, finish recommendations, site-based requirements,
+            and helping clients choose the right solution for function, aesthetics, durability, and cost.
+          </p>
+          <p>
+            We work with well-known product categories and associated brands to support modern interior spaces
+            with better finishing, privacy, acoustics, visual appeal, and practical performance.
+          </p>
+        </div>
+
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Interior Solutions">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services & Product Categories</h2>
+      <p class="section-subtitle">
+        We provide interior finishing and architectural product solutions for multiple applications.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h4>Resin Panels</h4>
+          <p>Decorative resin panel solutions that add texture, design depth, and modern visual appeal to interior spaces.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>Wooden Floorings</h4>
+          <p>Elegant and durable wooden flooring options suitable for homes, offices, and premium commercial interiors.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>False Ceilings</h4>
+          <p>Stylish and functional ceiling systems for improved aesthetics, lighting integration, and concealed utilities.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>Vinyl Flooring</h4>
+          <p>Low-maintenance and versatile vinyl flooring solutions for residential and commercial applications.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>Venetian Blinds</h4>
+          <p>Classic blind systems that provide light control, privacy, and a neat finished look for interiors.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>Vertical Blinds</h4>
+          <p>Practical and elegant vertical blind installations for offices, large windows, and commercial spaces.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>Roller Blinds</h4>
+          <p>Clean and modern roller blind options designed for smooth operation, privacy, and visual simplicity.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>Aerocon Panels</h4>
+          <p>Lightweight panel solutions suitable for partitions and efficient space planning requirements.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>Frosted Film</h4>
+          <p>Privacy-enhancing frosted film solutions for glass partitions, office cabins, doors, and decorative use.</p>
+        </div>
+
+        <div class="service-card">
+          <h4>Acoustical Wall Panels</h4>
+          <p>Sound control and acoustic treatment panels for offices, meeting rooms, studios, and commercial interiors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="works-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Project Applications</h2>
+      <p class="section-subtitle">
+        These are sample project showcases for presentation on the website. You can later replace them with your actual completed project names and site photos.
+      </p>
+
+      <div class="works-grid">
+        <div class="work-card">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Corporate Office Project">
+          <div class="work-content">
+            <h4>Corporate Office Interior Package</h4>
+            <p>
+              Supply and application support for false ceilings, frosted films, vertical blinds, acoustical wall panels,
+              and flooring solutions for a modern office environment.
+            </p>
+          </div>
+        </div>
+
+        <div class="work-card">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Premium Residential Project">
+          <div class="work-content">
+            <h4>Premium Residential Interior Finish</h4>
+            <p>
+              Residential application including wooden flooring, roller blinds, venetian blinds, decorative resin panels,
+              and selected privacy film solutions for a refined living experience.
+            </p>
+          </div>
+        </div>
+
+        <div class="work-card">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Commercial Showroom Project">
+          <div class="work-content">
+            <h4>Showroom & Retail Space Upgrade</h4>
+            <p>
+              Interior enhancement with vinyl flooring, false ceiling systems, panel-based partitions, and blinds for
+              better product display, ambiance, and customer experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands" id="brands">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">Associated Brand Categories</h2>
+      <p class="section-subtitle" style="color: #cbd5e1;">
+        Based on the visiting card details shared, these are the brands referenced in your business presentation.
+      </p>
+
+      <div class="brand-list">
+        <div class="brand-item">Armstrong</div>
+        <div class="brand-item">3form</div>
+        <div class="brand-item">HunterDouglas</div>
+        <div class="brand-item">Vista Levlor</div>
+        <div class="brand-item">Interior Product Solutions</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">
+        Reach out for product enquiries, interior requirements, and project discussions.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Office Contact Details</h3>
+          <p><strong>Company:</strong> Bountiful Solutions</p>
+          <p><strong>Address:</strong> # 1-9-6, New Dilsukhnagar Colony, Dilsukhnagar, Hyderabad - 500 060.</p>
+          <p><strong>E-mail:</strong> bountifulsolutions1@gmail.com</p>
+          <p><strong>Registered Office:</strong> 1-8-74, New Dilsukhnagar Colony, Dilsukhnagar, Hyderabad - 500 060.</p>
+        </div>
+
+        <div class="highlight-box">
+          <h3>Why Choose Us</h3>
+          <p>✔ Wide range of interior product categories</p>
+          <p>✔ Solutions for residential and commercial spaces</p>
+          <p>✔ Practical product guidance and finish selection</p>
+          <p>✔ Quality-oriented approach</p>
+          <p>✔ Professional support for project-based requirements</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Bountiful Solutions. All Rights Reserved.</p>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/919866679503?text=Hello%20Bountiful%20Solutions%2C%20I%20would%20like%20to%20know%20more%20about%20your%20interior%20solutions." target="_blank" title="Chat on WhatsApp">💬</a>
+
+</body>
+</html>
