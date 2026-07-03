@@ -1,0 +1,148 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY THEME */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #e4e7ec);
+  color: #1a1a1a;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  background: transparent;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* SECTION CENTER */
+.center-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.center-heading h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* ACCORDION CONTAINER */
+.accordion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ACCORDION CARD */
+.accordion-item {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item:hover {
+  transform: translateY(-4px);
+}
+
+/* HEADER BUTTON */
+.accordion-header {
+  width: 100%;
+  padding: 22px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ICON */
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* CONTENT */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 26px;
+  transition: all 0.4s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  padding: 0 26px 22px;
+}
+
+/* LIST */
+.accordion-content ul {
+  padding-left: 20px;
+}
+
+.accordion-content li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* TAGLINE */
+.overview-tagline {
+  text-align: center;
+  margin-top: 30px;
+  font-style: italic;
+  color: #555;
+}body {
+  font-family: Arial;
+}
+
+.center-heading {
+  text-align: center;
+}
+
+.accordion {
+  max-width: 800px;
+  margin: auto;
+}
+
+.accordion-item {
+  background: #fff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 200px;
+  padding: 10px;
+}
